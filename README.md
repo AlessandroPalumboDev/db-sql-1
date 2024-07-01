@@ -18,7 +18,7 @@ per eseguire le query del file allegato.
 7. Da quanti dipartimenti è composta l'università? (12) &check;
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50) &check;
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
-   degree_id, inserire un valore casuale)
+   degree_id, inserire un valore casuale) &check;
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
 11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9
 
@@ -113,10 +113,21 @@ WHERE
 ```
 
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
-   degree_id, inserire un valore casuale) &cross;
+   degree_id, inserire un valore casuale) &check;
 
 ```bash
-
+INSERT INTO `students`(
+    `degree_id`,
+    `name`,
+    `surname`,
+    `date_of_birth`,
+    `fiscal_code`,
+    `enrolment_date`,
+    `registration_number`,
+    `email`
+)
+VALUES(
+    FLOOR(1 +(RAND() * 100) + 1), 'Alessandro', 'Palumbo', '1996-02-29', 'PLMLSN96B29G999T', '2024-07-01', 999999, 'alessandro1palumbo@gmail.com');
 ```
 
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126 &cross;
