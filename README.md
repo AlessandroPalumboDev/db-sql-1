@@ -16,7 +16,7 @@ per eseguire le query del file allegato.
    20/06/2020 (21)
 6. Selezionare tutti i corsi di laurea magistrale (38) &check;
 7. Da quanti dipartimenti è composta l'università? (12) &check;
-8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50) &check;
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
    degree_id, inserire un valore casuale)
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
@@ -86,10 +86,15 @@ FROM
     `departments`;
 ```
 
-8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50) &cross;
+8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50) &check;
 
 ```bash
-
+SELECT
+    COUNT(*)
+FROM
+    `teachers`
+WHERE
+    `phone` IS NULL;
 ```
 
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
