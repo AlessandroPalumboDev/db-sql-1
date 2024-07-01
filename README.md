@@ -11,7 +11,7 @@ per eseguire le query del file allegato.
 2. Selezionare tutti i corsi che valgono più di 10 crediti (479) &check;
 3. Selezionare tutti gli studenti che hanno più di 30 anni &check;
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
-   laurea (286)
+   laurea (286) &check;
 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
    20/06/2020 (21)
 6. Selezionare tutti i corsi di laurea magistrale (38) &check;
@@ -57,11 +57,16 @@ WHERE
     TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
 ```
 
-4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di &cross;
+4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di &check;
    laurea (286)
 
 ```bash
-
+SELECT
+    *
+FROM
+    `courses`
+WHERE
+    `period` = 'I Semestre' AND `year` = '1';
 ```
 
 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
