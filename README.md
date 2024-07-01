@@ -54,10 +54,7 @@ SELECT
 FROM
     `students`
 WHERE
-    DATE_ADD(
-        `date_of_birth`,
-        INTERVAL 30 YEAR
-    ) <= CURDATE();
+    TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
 ```
 
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di &cross;
