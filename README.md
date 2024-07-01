@@ -20,7 +20,7 @@ per eseguire le query del file allegato.
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
    degree_id, inserire un valore casuale) &check;
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126 &check;
-11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9
+11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9 &check;
 
 ## Svolgimento:
 
@@ -141,8 +141,12 @@ WHERE
     `name` = 'Pietro' AND `surname` = 'Rizzo';
 ```
 
-11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9 &cross;
+11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9 &check;
 
 ```bash
-
+DELETE
+FROM
+    `students`
+WHERE
+    `name` = 'Alessandro' AND `surname` = 'Palumbo' AND `date_of_birth` = '1996-02-29' AND `fiscal_code` = 'PLMLSN96B29G999T' AND `enrolment_date` = '2024-07-01' AND `registration_number` = 999999 AND `email` = 'alessandro1palumbo@gmail.com';
 ```
