@@ -9,7 +9,7 @@ per eseguire le query del file allegato.
 
 1. Selezionare tutti gli studenti nati nel 1990 (160) &check;
 2. Selezionare tutti i corsi che valgono più di 10 crediti (479) &check;
-3. Selezionare tutti gli studenti che hanno più di 30 anni
+3. Selezionare tutti gli studenti che hanno più di 30 anni &check;
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
    laurea (286)
 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
@@ -46,10 +46,18 @@ WHERE
     `cfu` > '10';
 ```
 
-3. Selezionare tutti gli studenti che hanno più di 30 anni &cross;
+3. Selezionare tutti gli studenti che hanno più di 30 anni &check;
 
 ```bash
-
+SELECT
+    *
+FROM
+    `students`
+WHERE
+    DATE_ADD(
+        `date_of_birth`,
+        INTERVAL 30 YEAR
+    ) <= CURDATE();
 ```
 
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di &cross;
