@@ -19,7 +19,7 @@ per eseguire le query del file allegato.
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50) &check;
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
    degree_id, inserire un valore casuale) &check;
-10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
+10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126 &check;
 11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9
 
 ## Svolgimento:
@@ -130,10 +130,15 @@ VALUES(
     FLOOR(1 +(RAND() * 100) + 1), 'Alessandro', 'Palumbo', '1996-02-29', 'PLMLSN96B29G999T', '2024-07-01', 999999, 'alessandro1palumbo@gmail.com');
 ```
 
-10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126 &cross;
+10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126 &check;
 
 ```bash
-
+UPDATE
+    `teachers`
+SET
+    `office_number` = '126'
+WHERE
+    `name` = 'Pietro' AND `surname` = 'Rizzo';
 ```
 
 11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9 &cross;
