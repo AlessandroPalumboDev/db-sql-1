@@ -30,7 +30,7 @@ SELECT
 FROM
     `students`
 WHERE
-    YEAR(`date_of_birth`) = '1990';
+    YEAR(`date_of_birth`) = 1990;
 ```
 
 - #### Query 2
@@ -42,7 +42,7 @@ SELECT
 FROM
     `courses`
 WHERE
-    `cfu` > '10';
+    `cfu` > 10;
 ```
 
 - #### Query 3
@@ -67,7 +67,7 @@ SELECT
 FROM
     `courses`
 WHERE
-    `period` = 'I Semestre' AND `year` = '1';
+    `period` = 'I semestre' AND `year` = 1;
 ```
 
 - #### Query 5
@@ -80,7 +80,7 @@ SELECT
 FROM
     `exams`
 WHERE
-    DATE(`date`) = '2020-06-20' AND TIME(`hour`) > '14:00:00';
+    DATE(`date`) = '2020-06-20' AND HOUR(`hour`) > 14;
 ```
 
 - #### Query 6
@@ -100,7 +100,7 @@ WHERE
 
 ```bash
 SELECT
-    COUNT(*)
+    COUNT(`id`)
 FROM
     `departments`;
 ```
@@ -110,11 +110,11 @@ FROM
 
 ```bash
 SELECT
-    COUNT(*)
+    COUNT(`id`)
 FROM
     `teachers`
 WHERE
-    `phone` IS NULL;
+    `phone` IS NULL OR `phone` = '';
 ```
 
 - #### Query 9
@@ -133,7 +133,7 @@ INSERT INTO `students`(
     `email`
 )
 VALUES(
-    FLOOR(1 +(RAND() * 100) + 1), 'Alessandro', 'Palumbo', '1996-02-29', 'PLMLSN96B29G999T', '2024-07-01', 999999, 'alessandro1palumbo@gmail.com');
+    28, 'Alessandro', 'Palumbo', '1996-02-29', 'PLMLSN96B29G999T', '2024-07-01', 999999, 'alessandro1palumbo@gmail.com');
 ```
 
 - #### Query 10
@@ -156,5 +156,7 @@ DELETE
 FROM
     `students`
 WHERE
-    `name` = 'Alessandro' AND `surname` = 'Palumbo' AND `date_of_birth` = '1996-02-29' AND `fiscal_code` = 'PLMLSN96B29G999T' AND `enrolment_date` = '2024-07-01' AND `registration_number` = 999999 AND `email` = 'alessandro1palumbo@gmail.com';
+    `id` = (SELECT `id` FROM(SELECT `id` FROM `students` ORDER BY `id` DESC LIMIT 1) AS `temp`) ;
+
+    # elimina sempre la riga con l' id più alto ordinando tutte le righe in ordine decrescente dell' id e prendendo solo la prima riga(quindi quella con l'id più alto)
 ```
